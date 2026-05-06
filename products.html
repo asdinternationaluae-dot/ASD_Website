@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products — ASD International</title>
+  <meta name="description" content="Explore the full range of ASD International pharmaceutical products including iron supplements, vitamins, minerals, and specialty formulations.">
+  <link rel="icon" type="image/png" href="assets/ASD-LOGO.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <a href="#main" class="sr-only">Skip to main content</a>
+
+  <!-- NAV -->
+  <header class="nav" role="banner">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="ASD International Home"><img src="assets/ASD-LOGO.png" alt="ASD International logo" width="120" height="40"></a>
+      <nav class="nav__links" role="navigation" aria-label="Main navigation">
+        <a href="index.html">Home</a><a href="products.html">Products</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav__cta"><a href="contact.html" class="btn btn-primary">Request Info</a></div>
+      <button class="nav__hamburger" aria-label="Open menu"><i data-lucide="menu" width="24" height="24"></i></button>
+    </div>
+  </header>
+  <div class="nav__mobile" role="dialog" aria-label="Mobile navigation">
+    <button class="nav__mobile-close" aria-label="Close menu"><i data-lucide="x" width="28" height="28"></i></button>
+    <a href="index.html">Home</a><a href="products.html">Products</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+    <a href="contact.html" class="btn btn-primary" style="margin-top:16px;">Request Info</a>
+  </div>
+
+  <main id="main">
+    <div class="page-header">
+      <div class="container" data-reveal>
+        <p class="section-label">Our Products</p>
+        <h1 class="section-title">Product Catalog</h1>
+        <p class="section-subtitle mx-auto" style="text-align:center;">Explore our complete range of pharmaceutical products — advanced formulations designed for superior absorption, efficacy, and patient comfort.</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Filter Bar -->
+      <div class="filter-bar" data-reveal>
+        <div class="filter-bar__pills" id="filter-pills"></div>
+        <div class="filter-bar__search">
+          <i data-lucide="search" width="16" height="16" class="filter-bar__search-icon"></i>
+          <input type="text" id="product-search" placeholder="Search products..." aria-label="Search products">
+        </div>
+      </div>
+
+      <!-- Product Grid -->
+      <div class="product-grid" id="product-grid"></div>
+
+      <!-- Empty State -->
+      <div class="empty-state" id="empty-state" style="display:none;">
+        <div class="empty-state__icon">🔍</div>
+        <p class="empty-state__text">No products found for this filter</p>
+        <button class="btn btn-ghost" id="clear-filters">Clear Filters</button>
+      </div>
+
+      <!-- Load More -->
+      <div class="load-more" id="load-more" style="display:none;">
+        <button class="btn btn-ghost btn-lg" id="load-more-btn">Load More Products</button>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <section class="cta-banner section" aria-label="Call to action">
+      <div class="container">
+        <div class="cta-banner__inner" data-reveal>
+          <h2 class="section-title">Need product information?</h2>
+          <p class="section-subtitle mx-auto" style="text-align:center;">Our team is ready to provide detailed specifications, registration documents, and partnership opportunities.</p>
+          <div class="cta-banner__buttons">
+            <a href="contact.html" class="btn btn-primary btn-lg">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="assets/ASD-LOGO.png" alt="ASD International" style="width: 180px; height: auto;">
+          <p>Innovation for your health</p>
+          <div class="footer__socials">
+            <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin" width="18" height="18"></i></a>
+            <a href="#" aria-label="Twitter"><i data-lucide="twitter" width="18" height="18"></i></a>
+            <a href="#" aria-label="Facebook"><i data-lucide="facebook" width="18" height="18"></i></a>
+          </div>
+        </div>
+        <div class="footer__col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="products.html">Products</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="footer__col"><h4>Categories</h4><ul><li><a href="products.html#Iron Supplement">Iron Supplements</a></li><li><a href="products.html#Minerals">Minerals</a></li><li><a href="products.html#Vitamins %26 Minerals">Vitamins & Minerals</a></li><li><a href="products.html#Specialty Supplement">Specialty</a></li></ul></div>
+        <div class="footer__col"><h4>Contact</h4><ul><li><a href="mailto:info@asdinternational.co">info@asdinternational.co</a></li><li><a href="tel:+97122459549">+971 2 245 9549</a></li><li>Block 2-Store No.3, ICAD III, Abu Dhabi, UAE</li></ul></div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 ASD International. All rights reserved.</p>
+        <p>Designed with ♥ for health innovation</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Inline Product Data -->
+  <script id="products-data" type="application/json">
+  [{"id":"asd-iron","name":"ASD IRON","category":"Iron Supplement","description":"ASD IRON is an advanced food supplement designed to help manage various types of anemia, utilizing a unique liposomal and nanotechnology delivery system. This innovative technology enhances iron absorption, bioavailability, and overall efficacy.","active_ingredients":"Iron 30 mg, Folic Acid 200 mcg, Vitamin B12 200 mcg, Vitamin C 80 mg","recommended_dose":"As directed by a healthcare professional. Available in a pack of 30 capsules.","details":"- Supports normal cognitive function and normal transport of oxygen in the body\n- Contributes to normal formation of hemoglobin and red blood cells\n- Supports normal function of blood vessels and protects cells from oxidative stress\n- Supports normal function of the immune system and cell division process\n- Free from common side effects: no constipation, no metallic taste, no gastric discomfort","image":"assets/img/ASDIron.png","tags":["iron","anemia","liposomal","capsules"]},{"id":"asd-magnesium","name":"ASD MAGNESIUM","category":"Minerals","description":"ASD Magnesium is the first liposomal magnesium supplement in the UAE, delivering a high dose of 400 mg of magnesium per tablet. Formulated with premium-quality liposomal technology, it ensures superior absorption.","active_ingredients":"Liposomal Magnesium Oxide 400 mg","recommended_dose":"As directed by a healthcare professional.","details":"- Helps stabilize mood and sleep; plays an ideal role in managing anxiety and insomnia\n- Reduces muscle cramps and spasms; supports smooth muscle relaxation\n- Helps with mood swings, irritability, and headaches associated with PMS\n- Aids calcium and vitamin D metabolism, improving bone strength and healing\n- Plays an important role in migraine management","image":"assets/img/ASDMagnesium.png","tags":["magnesium","liposomal","minerals","muscle"]},{"id":"asd-sustained-vit","name":"ASD SUSTAINED VIT","category":"Vitamins & Minerals","description":"ASD SUSTAINED VIT is a comprehensive formula containing 20 essential vitamins and minerals, carefully designed to support overall health, vitality, and daily performance. Developed with a patented sustained-release technology.","active_ingredients":"20 ingredients including Calcium, Phosphorous, Magnesium, Iron, Vitamins B/C/D/E, Zinc, and more","recommended_dose":"As directed by a healthcare professional.","details":"- Supports healthy pregnancy\n- Improves bone health\n- Provides continuous energy and supports metabolism throughout the day\n- Supports immunity and vision\n- Enhances hormonal balance and thyroid function\n- Protects from anemia and enhances focus","image":"assets/img/ASDSustainedVit.png","tags":["multivitamin","sustained-release","vitamins","minerals"]},{"id":"zinco-q10","name":"Zinco Q10","category":"Antioxidants & Minerals","description":"Zinco Q10 is a patent formula combining Zinc with Coenzyme Q10, providing dual antioxidant defense power for the best cellular energy and overall wellness.","active_ingredients":"Zinc Citrate 25 mg, Coenzyme Q10 100 mg","recommended_dose":"One tablet twice daily or as directed by doctor.","details":"- Immunity booster\n- Supports male and female fertility\n- Hormone level regulation without side effects\n- Supports heart health and diabetes management\n- Promotes healthy skin aging, wound healing, and reduces headaches\n- Supports exercise performance","image":"assets/img/ZincoQ10.png","tags":["zinc","coq10","antioxidant","immunity"]},{"id":"asd-carniplex","name":"ASD CARNIPLEX","category":"Specialty Supplement","description":"ASD CARNIPLEX is a premium supplement featuring 600 mg of L-Carnitine per capsule. This powerful compound is renowned for its role in energy production and metabolism.","active_ingredients":"L-Carnitine 600 mg","recommended_dose":"As directed by a healthcare professional.","details":"- Supports fertility in men by increasing sperm motility and morphology\n- Supports fertility in women by improving oocyte (ova) quality\n- Helps manage chronic fatigue and improve overall wellness\n- Improves post-viral fatigue\n- Supports weight management\n- Enhances lipid profile for hyperlipidemic patients\n- Boosts stamina and reduces post-exercise fatigue","image":"assets/img/ASDCarneplex.png","tags":["l-carnitine","energy","fertility","metabolism"]},{"id":"inpro","name":"INPRO","category":"Specialty Supplement","description":"INPRO is a rectal suppository combining Lactoferrin and Hyaluronic Acid. Its systemic antibacterial and anti-inflammatory action makes it an ideal choice for both males and females across a range of anorectal and pelvic conditions.","active_ingredients":"Lactoferrin, Hyaluronic Acid","recommended_dose":"1 to 2 suppositories daily, or as directed by a doctor.","details":"- Best choice for hemorrhoids, anorectal diseases, and constipation\n- For Males: Chronic prostatitis, chronic pelvic pain syndrome, bacterial infections\n- For Females: Chronic pelvic pain syndrome, cystitis, vaginitis, and other infectious diseases\n- Dual antibacterial and anti-inflammatory systemic action\n- Suitable for both male and female patients","image":"assets/img/Inpro.png","tags":["lactoferrin","hyaluronic","suppository","anti-inflammatory"]},{"id":"asd-semifer-10","name":"ASD Semifer 10 mg","category":"Iron Supplement","description":"ASD Semifer is a premium liposomal iron supplement targeting preterm infants, infants, and young children below 3 years old. Available as ready-to-use, pre-dosed drinkable vials with a pleasant caramel taste.","active_ingredients":"Liposomal Iron (Microencapsulated Ferric Saccharate) 10 mg","recommended_dose":"Infants 6 months to 1 year: 1 vial daily for 3 months. Children 1 to 3 years: 1 to 2 vials daily.","details":"- Treatment and prevention of iron deficiency anemia in preterm infants, infants, and young children\n- Reduction of tiredness and fatigue\n- Support of normal immune system function\n- Normal formation of red blood cells and hemoglobin\n- Support of normal cognitive development\n- Free from sugar, alcohol, and artificial colors","image":"assets/img/ASDSemifer10.png","tags":["iron","liposomal","pediatric","infants","vials"]},{"id":"asd-semifer-14","name":"ASD Semifer 14 mg","category":"Iron Supplement","description":"ASD Semifer is a premium liposomal iron supplement targeting children from 3 years old and adolescents. Available as ready-to-use, pre-dosed drinkable vials with a pleasant caramel taste.","active_ingredients":"Liposomal Iron (Microencapsulated Ferric Saccharate) 14 mg","recommended_dose":"1 to 2 vials daily, depending on individual iron needs and medical advice.","details":"- Treatment and prevention of iron deficiency and iron deficiency anemia in children and adolescents\n- Reduction of tiredness and fatigue\n- Support of normal immune system function\n- Formation of red blood cells and hemoglobin\n- Support of normal cognitive function\n- Free from sugar, alcohol, and artificial colors","image":"assets/img/ASDSemifer14.png","tags":["iron","liposomal","children","adolescents","vials"]},{"id":"asd-semifer-40","name":"ASD Semifer 40 mg","category":"Iron Supplement","description":"ASD Semifer is a premium liposomal iron supplement targeting adults. Ideal for pregnancy, athletes, vegetarians, and post-bariatric surgery patients. Available as ready-to-use, pre-dosed drinkable vials.","active_ingredients":"Liposomal Iron (Microencapsulated Ferric Saccharate) 40 mg","recommended_dose":"1 to 2 vials daily for adults, depending on individual iron requirements and as directed by a healthcare professional.","details":"- Prevention and treatment of iron deficiency anemia in adults\n- Reduction of tiredness and fatigue\n- Normal immune system function\n- Formation of red blood cells and hemoglobin\n- Support of normal cognitive and metabolic function\n- Free from sugar, alcohol, and artificial colors","image":"assets/img/ASDSemifer40.png","tags":["iron","liposomal","adults","pregnancy","vials"]},{"id":"asd-chelazen","name":"ASD CHELAZEN","category":"Chelated Minerals","description":"ASD Chelazen is a premium iron bisglycinate supplement designed to effectively combat anemia. Using iron chelation and Nano-Technology, it maximizes bioavailability while minimizing GI side effects.","active_ingredients":"Iron Bisglycinate (as Iron) 20 mg","recommended_dose":"1 capsule twice daily, or as recommended by a physician. Take with water.","details":"- Maximizes bioavailability and efficacy via iron chelation and Nano-Technology\n- Enhances tolerability \u2014 ideal for gastric-sensitive patients\n- Reduces side effects of nausea, gastric upset, and constipation\n- Bisglycinate protects iron from gastric food interaction, ensuring high absorption\n- Supports immunity and reduces fatigue caused by IDA","image":"assets/img/ASDChelazen.png","tags":["iron","bisglycinate","chelated","nano-technology"]},{"id":"asd-magneflex","name":"ASD MAGNEFLEX","category":"Minerals","description":"ASD Magneflex is the only magnesium supplement in the UAE providing 4 mmol (97 mg) of elemental magnesium per capsule in the form of magnesium glycerophosphate. Flexible dose suitable for both children and adults.","active_ingredients":"Magnesium Glycerophosphate 97 mg elemental Mg (4 mmol)","recommended_dose":"Adults: 1 capsule three times daily. Children: 1 capsule twice daily.","details":"- Helps reduce muscle cramps, spasms, and muscle twitching\n- Helps support energy levels and reduce tiredness\n- Helps support bone health by assisting proper calcium utilization\n- Helps reduce migraine frequency\n- Helps enhance quality of sleep and reduce anxiety\n- Gastrointestinal Tolerance: no gastric upset or diarrhea\n- Flexible dosing for both children and adults","image":"assets/img/ASDMagneflex.png","tags":["magnesium","glycerophosphate","muscles","children","adults"]}]
+  </script>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <script src="assets/js/nav.js" defer></script>
+  <script src="assets/js/products.js" defer></script>
+</body>
+</html>
