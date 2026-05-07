@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('asd_products', JSON.stringify(products));
     }
   } catch (e) {
-    try { products = JSON.parse(dataEl.textContent); } catch(err) {}
+    try { products = JSON.parse(dataEl.textContent); } catch (err) { }
   }
 
   const grid = document.getElementById('product-grid');
