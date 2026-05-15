@@ -146,15 +146,17 @@
   z-index: 1000;
   display: flex;
   align-items: center;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+  background: transparent;
   border-bottom: none;
-  transition: background var(--transition-base), backdrop-filter var(--transition-base);
+  transition: all var(--transition-base);
 }
 
 .nav--scrolled {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--color-border);
+  height: 80px;
 }
 
 .nav__inner {
@@ -221,7 +223,7 @@
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.95);
+  background: var(--color-bg);
   backdrop-filter: blur(20px);
   z-index: 999;
   flex-direction: column;
@@ -301,7 +303,7 @@
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.6) 70%, rgba(0, 0, 0, 0.9) 100%);
+  background: linear-gradient(to bottom, rgba(224, 242, 254, 0.3) 0%, rgba(240, 253, 244, 0.6) 70%, var(--color-bg-end) 100%);
   z-index: 1;
 }
 
@@ -443,13 +445,14 @@
 /* ======================== PRODUCT CARDS ======================== */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: var(--space-6);
+  justify-content: center;
 }
 
 .product-card {
   position: relative;
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -566,7 +569,7 @@
   border-radius: 100px;
   font-size: var(--text-sm);
   font-weight: 500;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.04);
   color: var(--color-text-muted);
   cursor: pointer;
   white-space: nowrap;
@@ -575,7 +578,7 @@
 }
 
 .filter-pill:hover {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.08);
   color: var(--color-text);
 }
 
@@ -592,7 +595,7 @@
 .filter-bar__search input {
   width: 100%;
   padding: var(--space-3) var(--space-4) var(--space-3) var(--space-10);
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 100px;
   color: var(--color-text);
@@ -663,7 +666,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.2) 100%);
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.1) 100%);
 }
 
 .why-card--large .why-card__content {
@@ -927,7 +930,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: linear-gradient(180deg, #000 0%, #080818 100%);
+  background: linear-gradient(180deg, var(--color-bg-start) 0%, var(--color-bg-end) 100%);
   padding-top: var(--nav-height);
 }
 
@@ -1064,7 +1067,7 @@
 .form-group select,
 .form-group textarea {
   padding: var(--space-4);
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   color: var(--color-text);
@@ -1076,7 +1079,7 @@
 .form-group select:focus,
 .form-group textarea:focus {
   border-color: var(--color-primary);
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--color-surface-2);
 }
 
 .form-group textarea {
@@ -1090,8 +1093,8 @@
 }
 
 .form-group select option {
-  background: #111;
-  color: #fff;
+  background: var(--color-bg);
+  color: var(--color-text);
 }
 
 .form-error {
@@ -1216,7 +1219,7 @@
 
 /* ======================== FOOTER ======================== */
 .footer {
-  background: #000;
+  background: var(--color-bg-end);
   border-top: 1px solid var(--color-border);
   padding: var(--space-16) 0 var(--space-8);
 }
@@ -1252,7 +1255,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff; /* Forced white for visibility on black footer */
+  color: var(--color-text);
   transition: all var(--transition-fast);
 }
 
@@ -1272,7 +1275,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: translateY(5px);
+  transform: translateY(8px);
 }
 
 
