@@ -56,9 +56,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Generate product card HTML
   function generateProductCard(product) {
     return `
-      <article class="product-card" data-reveal>
+      <article class="product-card tilt-container" data-reveal>
         <a href="product-detail.html#${product.id}" class="product-card__overlay-link" aria-label="View ${product.name}"></a>
-        <div class="product-card__image">
+        <div class="product-card__image tilt-inner">
           <img src="${product.image}" alt="${product.name}" loading="lazy" decoding="async" width="400" height="300">
         </div>
         <div class="product-card__body">
@@ -103,6 +103,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Re-init icons and reveal
     if (typeof lucide !== 'undefined') lucide.createIcons();
+    if (window.initTilt) window.initTilt('.tilt-container');
+
     // Re-observe reveal elements
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });

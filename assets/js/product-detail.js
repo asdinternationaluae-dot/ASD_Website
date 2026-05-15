@@ -27,45 +27,60 @@ if (dataEl) {
       document.title = `${product.name} — ASD International`;
       if (breadcrumbName) breadcrumbName.textContent = product.name;
       container.innerHTML = `
-        <div class="detail-hero">
-          <div class="detail-hero__image" data-reveal>
-            <img src="${product.image}" alt="${product.name}" width="600" height="450" loading="eager" decoding="async">
-            <h1 class="detail-hero__name detail-hero__mobile-title">${product.name}</h1>
-          </div>
-          <div class="detail-hero__info" data-reveal data-delay="1">
-            <span class="product-card__badge">${product.category}</span>
-            <h1 class="detail-hero__name">${product.name}</h1>
-            <p class="detail-hero__desc">${product.description}</p>
-            <div class="detail-divider"></div>
+        <div class="product-hero">
+          <div class="product-hero__main">
+            <div class="product-visual tilt-container" data-reveal>
+              <div class="product-visual__bg"></div>
+              
+              <!-- Floating 3D Shapes -->
+              <div class="floating-shape shape-1"></div>
+              <div class="floating-shape shape-2"></div>
+              <div class="floating-shape shape-3"></div>
+
+              <div class="product-image-3d tilt-inner">
+                <img src="${product.image}" alt="${product.name}" loading="eager">
+              </div>
+            </div>
             
-            <div class="detail-hero__actions">
-              <a href="contact.html" class="btn btn-primary">Request Information</a>
-              <a href="products.html" class="btn btn-ghost">← Back to Products</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="detail-cards" data-reveal>
-          <div class="detail-card">
-            <h3><i data-lucide="flask-conical"></i> Active Ingredients</h3>
-            <p>${product.active_ingredients}</p>
-          </div>
-          
-          <div class="detail-card">
-            <h3><i data-lucide="check-circle"></i> Key Benefits</h3>
-            <div class="benefits-list" style="margin-top:var(--space-2);">
-              ${product.details.split('\n').filter(l => l.trim().startsWith('-')).map(l => `
-                <div style="display:flex;gap:10px;margin-bottom:8px;font-size:var(--text-sm);color:var(--color-text-muted);">
-                  <i data-lucide="check" width="16" height="16" style="color:var(--color-primary);flex-shrink:0;"></i>
-                  <span>${l.trim().slice(1).trim()}</span>
-                </div>
-              `).join('')}
+            <div class="product-info" data-reveal data-delay="1">
+              <div class="product-badge">${product.category}</div>
+              <h1 class="product-title">${product.name}</h1>
+              <p class="product-tagline">${product.description}</p>
+              
+              <div class="detail-hero__actions">
+                <a href="contact.html?product=${product.id}" class="btn btn-primary btn-lg">Request Information</a>
+                <a href="products.html" class="btn btn-ghost">← All Products</a>
+              </div>
             </div>
           </div>
 
-          <div class="detail-card">
-            <h3><i data-lucide="pill"></i> Recommended Dose</h3>
-            <p>${product.recommended_dose}</p>
+          <div class="product-science" data-reveal data-delay="2">
+            <div class="science-card">
+              <div class="science-card__icon"><i data-lucide="flask-conical"></i></div>
+              <h3 class="science-card__title">Active Ingredients</h3>
+              <div class="science-card__content">${product.active_ingredients}</div>
+            </div>
+            
+            <div class="science-card">
+              <div class="science-card__icon"><i data-lucide="zap"></i></div>
+              <h3 class="science-card__title">Key Benefits</h3>
+              <div class="science-card__content">
+                <ul style="list-style:none; padding:0;">
+                  ${product.details.split('\n').filter(l => l.trim().startsWith('-')).map(l => `
+                    <li style="display:flex; gap:8px; margin-bottom:8px;">
+                      <i data-lucide="check" width="16" style="color:var(--color-primary);flex-shrink:0;margin-top:2px;"></i>
+                      <span>${l.trim().slice(1).trim()}</span>
+                    </li>
+                  `).join('')}
+                </ul>
+              </div>
+            </div>
+
+            <div class="science-card">
+              <div class="science-card__icon"><i data-lucide="pill"></i></div>
+              <h3 class="science-card__title">Dosage</h3>
+              <div class="science-card__content">${product.recommended_dose}</div>
+            </div>
           </div>
         </div>
       `;
@@ -79,9 +94,9 @@ if (dataEl) {
               <h2 class="section-title">Related Products</h2>
               <div class="product-grid">
                 ${related.map(p => `
-                  <article class="product-card" data-reveal>
+                  <article class="product-card tilt-container" data-reveal>
                     <a href="product-detail.html#${p.id}" class="product-card__overlay-link" onclick="setTimeout(() => window.location.reload(), 10)"></a>
-                    <div class="product-card__image">
+                    <div class="product-card__image tilt-inner">
                       <img src="${p.image}" alt="${p.name}">
                     </div>
                     <div class="product-card__body">
@@ -98,6 +113,8 @@ if (dataEl) {
 
       // Re-init
       if (typeof lucide !== 'undefined') lucide.createIcons();
+      if (window.initTilt) window.initTilt('.tilt-container');
+
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
       }, { threshold: 0.15 });

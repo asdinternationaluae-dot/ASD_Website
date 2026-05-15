@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/product-3d.css">
 </head>
 
 <body>
@@ -235,6 +236,7 @@
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
   <script src="assets/js/nav.js" defer></script>
   <script src="assets/js/hero.js" defer></script>
+  <script src="assets/js/tilt.js" defer></script>
 
   <!-- Featured products inline data + render -->
   <script defer>
@@ -254,9 +256,9 @@
       const grid = document.getElementById('featured-grid');
       if (!grid) return;
       grid.innerHTML = products.slice(0, 3).map(p => `
-        <article class="product-card">
+        <article class="product-card tilt-container">
           <a href="product-detail.html#${p.id}" class="product-card__overlay-link" aria-label="View ${p.name}"></a>
-          <div class="product-card__image">
+          <div class="product-card__image tilt-inner">
             <img src="${p.image}" alt="${p.name}" loading="lazy" decoding="async" width="400" height="300">
           </div>
           <div class="product-card__body">
@@ -270,6 +272,7 @@
         </article>
       `).join('');
       if (typeof lucide !== 'undefined') lucide.createIcons();
+      if (window.initTilt) window.initTilt('.tilt-container');
     });
   </script>
 </body>
